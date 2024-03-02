@@ -1,3 +1,4 @@
 Flask==1.1.2
 mysql-connector-python==8.0.28
 Flask-Cors==3.0.10
+configparser

@@ -2,17 +2,17 @@ from flask import Flask, request, jsonify
 import mysql.connector
 from flask_cors import CORS
 import configparser
-import os
+#import os
 
-current_directory = os.path.dirname(__file__)
+#current_directory = os.path.dirname(__file__)
 # Construct the path to the INI file
-ini_file_path = os.path.join(current_directory, 'dbconfig.ini')
+#ini_file_path = os.path.join(current_directory, 'dbconfig.ini')
 
 # Initialize configparser
 config = configparser.ConfigParser()
 
 # Read the INI file
-config.read(ini_file_path)
+config.read('dbconfig.ini')
 
 app = Flask(__name__)
 cors = CORS(app)
