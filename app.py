@@ -25,6 +25,10 @@ db_config = {
         'database': config['mysql_conn']['database'],
     }
 
+@app.route('/')
+def index():
+    return 'Apis Are Up'
+
 @app.route('/Novotel/Create_HealthCheck', methods=['POST'])
 def insert_data():
     # Extract data from the request
