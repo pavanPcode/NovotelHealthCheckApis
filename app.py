@@ -41,8 +41,8 @@ def insert_data():
 
         # Insert data into the Novotelhealthcheck table
         cursor.execute("""
-            INSERT INTO Novotelhealthcheck (DateOfTransaction, EntryCount, ExitCount, InAndOutTotal, InAndOutFind, Type, Message)
-            VALUES (%s, %s, %s, %s, %s, %s, %s)
+            INSERT INTO Novotelhealthcheck (DateOfTransaction, EntryCount, ExitCount, InAndOutTotal, InAndOutFind, Type, Message,cameratype)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """, (
             data['DateOfTransaction'],
             data['EntryCount'],
@@ -50,7 +50,8 @@ def insert_data():
             data['InAndOutTotal'],
             data['InAndOutFind'],
             data['Type'],
-            data['Message']
+            data['Message'],
+            data["camera_type"]
         ))
 
         # Commit the transaction
@@ -77,7 +78,7 @@ def get_data():
         cursor = connection.cursor()
 
         # Execute query to fetch data from Novotelhealthcheck table for the specified date
-        cursor.execute("SELECT id, DateOfTransaction,  InAndOutTotal, InAndOutFind,EntryCount, ExitCount, Type, Message FROM Novotelhealthcheck WHERE DATE(DateOfTransaction) = %s order by id desc", (date_param,))
+        cursor.execute("SELECT id, DateOfTransaction,  InAndOutTotal, InAndOutFind,EntryCount, ExitCount, Type, Message,cameratype FROM Novotelhealthcheck WHERE DATE(DateOfTransaction) = %s order by id desc", (date_param,))
 
         # Fetch all rows
         rows = cursor.fetchall()
