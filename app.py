@@ -94,7 +94,8 @@ def get_data():
                 'InAndOutTotal': row[4],
                 'InAndOutFind': row[5],
                 'Type': row[6],
-                'Message': row[7]
+                'Message': row[7],
+                'cameratype': row[8]
             })
         data = {'Status':True,'ResultData':data}
 
