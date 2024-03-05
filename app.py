@@ -77,7 +77,7 @@ def get_data():
         cursor = connection.cursor()
 
         # Execute query to fetch data from Novotelhealthcheck table for the specified date
-        cursor.execute("SELECT * FROM Novotelhealthcheck WHERE DATE(DateOfTransaction) = %s order by id desc", (date_param,))
+        cursor.execute("SELECT id, DateOfTransaction,  InAndOutTotal, InAndOutFind,EntryCount, ExitCount, Type, Message FROM Novotelhealthcheck WHERE DATE(DateOfTransaction) = %s order by id desc", (date_param,))
 
         # Fetch all rows
         rows = cursor.fetchall()
